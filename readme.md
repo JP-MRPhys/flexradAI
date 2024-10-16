@@ -9,26 +9,8 @@ A web-based application that analyzes medical reports, provides explanations, an
 
 This project contains a Flask backend and a React frontend, packaged together in a Docker container, and deployed on Heroku. It also integrates the Ollama platform to run AI models.
 
-## Project Structure
 
-```
-/your-project
-│
-├── /backend            # Your Flask application
-│   ├── app.py
-│   ├── requirements.txt
-│   └── ...             # Other backend files
-│
-├── /frontend           # Your React application
-│   ├── package.json
-│   ├── package-lock.json
-│   ├── public
-│   ├── src
-│   └── ...             # Other frontend files
-│
-├── Dockerfile          # Combined Dockerfile
-└── start_servers.sh    # Start script
-```
+
 
 ## Prerequisites
 
