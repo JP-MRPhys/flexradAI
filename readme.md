@@ -2,6 +2,9 @@
 
 A web-based application that analyzes medical reports, provides explanations, and has a chat interface.
 
+<img width="717" alt="Screenshot 2024-10-15 at 15 31 28" src="https://github.com/user-attachments/assets/1398a746-c2d8-4275-b747-8d31f3b8a1ef">
+
+
 ## Setup
 
 ```markdown
