@@ -28,7 +28,7 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/JP-MRPhys/flexradAI
 cd your-repo
 ```
 
@@ -122,9 +122,15 @@ serve -s . -l 3000
 
 ## Notes
 
-- Ensure that the Flask app is configured to serve the React app correctly.
+- Ensure that the Flask app is configured to serve the React app correctly
 - If Ollama requires specific configurations or environment variables, make sure to set them in your Heroku app.
 - Monitor the resource usage, as running multiple servers in a single Heroku dyno may lead to performance issues depending on your app’s complexity and load.
+
+#TODO
+
+FRONTEND development for keyword handling and related 
+and completing the necessary refactoring enables the backend, the backend can be deployed independently as well to provide and API
+
 
 ## License
 
