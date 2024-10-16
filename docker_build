@@ -1,0 +1,55 @@
+# Dockerfile
+# Use an official Node.js image as a parent image for the frontend
+FROM node:16 AS build
+
+# Set working directory for the frontend
+WORKDIR /app/frontend
+
+# Copy package.json and package-lock.json
+COPY ./frontend/package*.json ./
+
+# Install frontend dependencies
+RUN npm install
+
+# Copy the rest of the frontend code
+COPY ./frontend ./
+
+# Build the React app
+RUN npm run build
+
+# Use an official Python image for the backend
+FROM python:3.10-slim
+
+# Set working directory for the backend
+WORKDIR /app/backend
+
+# Install Ollama (assuming Ollama is a Python package; adjust if it's different)
+# For example purposes, assuming Ollama can be installed with pip
+# If Ollama has a different installation process, please replace these commands accordingly.
+RUN apt-get update && apt-get install -y curl
+RUN curl -sSL https://get.ollama.com | sh
+
+# Install Flask and other dependencies
+COPY ./backend/requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the backend code
+COPY ./backend ./
+
+# Copy the build files from the frontend stage
+COPY --from=build /app/frontend/build ./frontend/build
+
+# Expose the port for the Flask app
+EXPOSE 5000
+
+# Set environment variable for Flask to run
+ENV FLASK_APP=app.py
+
+# Copy the start script
+COPY start_servers.sh .
+
+# Make the start script executable
+RUN chmod +x start_servers.sh
+
+# Start both servers
+CMD ["./start_servers.sh"]
